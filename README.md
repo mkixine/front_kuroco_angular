@@ -1,0 +1,2 @@
+# front_kuroco_angular
+AngularでのKurocoサイトのサンプル
