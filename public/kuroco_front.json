@@ -1,8 +1,15 @@
 {
-  "basic": [],
-  "redirects": [],
-  "rewrites": [],
-  "error_page": {
-    "status404": "/404.html"
-  }
+    "basic": [
+        "diverta:kuroco"
+    ],
+    "redirects": [],
+    "rewrites": [
+        {
+            "source": ".*",
+            "destination": "/index.html"
+        }
+    ],
+    "error_page": {
+        "status404": "/404.html"
+    }
 }
