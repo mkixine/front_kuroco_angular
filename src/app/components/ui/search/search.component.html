@@ -1,0 +1,18 @@
+<div class="l-header__nav__search">
+  <form (ngSubmit)="onSubmit($event)">
+    <button
+      type="submit"
+      aria-label="検索"
+      class="l-header__nav__searchButton"
+    ></button>
+    <label>
+      <input
+        type="text"
+        placeholder="キーワードを入力"
+        class="l-header__nav__searchText"
+        [value]="searchTerm"
+        (input)="onInputChange($event)"
+      />
+    </label>
+  </form>
+</div>

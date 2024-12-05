@@ -1,0 +1,26 @@
+<div class="l-container is-top">
+  <app-hero />
+  <main>
+    <section class="l-container--large l-container--contents">
+      <div class="u-display-flex u-display-flex-align-items-center u-mb-40">
+        <div class="u-display-flex-grow-1">
+          <h2 class="c-heading--lv1">新着情報</h2>
+          <p class="c-heading--sub">New articles</p>
+        </div>
+        <div class="u-display-flex-shrink-0">
+          <a routerLink="/article/" class="c-button"> View All </a>
+        </div>
+      </div>
+      <app-card-list (data)="(list)" />
+    </section>
+    <app-ranking />
+  </main>
+  <!--
+  <div class="l-container--large">
+    <Feature />
+    <TagArea />
+    <TagKeyword />
+    <Banner />
+  </div>
+  -->
+</div>
