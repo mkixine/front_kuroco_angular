@@ -43,8 +43,7 @@ jobs:
       - name: Install dependencies
         if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
         run: npm ci
-
-      - name: Generate
+      - name: Build
         run: npm run build
       - name: Zip artifact for upload
         run: cd ./dist/front_kuroco_angular/browser && zip ../../../dist.zip . -r
@@ -86,11 +85,10 @@ jobs:
       - name: Install dependencies
         if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
         run: npm ci
-
-      - name: Generate
-        run: npm run generate
+      - name: Build
+        run: npm run build
       - name: Zip artifact for upload
-        run: cd ./.output/public && zip ../../dist.zip . -r
+        run: cd ./dist/front_kuroco_angular/browser && zip ../../../dist.zip . -r
       - name: Archive Production Artifact
         uses: actions/upload-artifact@v4
         with:
