@@ -1,0 +1,6 @@
+<div ngIf="htmlContent | async; else loading">
+  <div [innerHTML]="htmlContent"></div>
+</div>
+<ng-template #loading>
+  <p>Loading content...</p>
+</ng-template>
