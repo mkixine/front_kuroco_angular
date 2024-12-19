@@ -2,11 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { firstValueFrom, Observable } from 'rxjs';
 
+import { environment } from '@/environments/environment';
+
 @Injectable({
   providedIn: 'any',
 })
 export class ApiService {
-  private API_ROOT_URL = 'https://mkixine-angular.g.kuroco.app';
+  private API_ROOT_URL = environment.API_ROOT_URL;
+  private ACCESS_TOKEN = environment.STATIC_TOKEN;
 
   constructor(private http: HttpClient) {}
 
@@ -14,7 +17,7 @@ export class ApiService {
     const request = this.http.get<T>(this.API_ROOT_URL + endpoint, {
       headers: new HttpHeaders().set(
         'X-RCMS-API-ACCESS-TOKEN',
-        '7f4adb1277630c7269bc32b092acc66bb943d571cb985709677c874d550a909b'
+        this.ACCESS_TOKEN
       ),
     });
     return await firstValueFrom(request);
