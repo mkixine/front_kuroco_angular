@@ -21,16 +21,26 @@ export class ApiService {
       {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
-          'X-RCMS-API-ACCESS-TOKEN': this.ACCESS_TOKEN,
         }),
+        withCredentials: true,
       }
     );
     return await firstValueFrom(request);
   }
 
-  async getHtml(slug: string): Promise<string> {
-    return this.getRequest<{ details: { html: string } }>(
-      '/rcms-api/3/html/' + slug
-    ).then((response) => response.details.html);
+  async postRequest<T, U>(endpoint: string, body: U, params?: any): Promise<T> {
+    const request = this.http.post<T>(
+      new URL(endpoint, this.API_ROOT_URL).toString() + params
+        ? '?' + new URLSearchParams(params).toString()
+        : '',
+      body,
+      {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        }),
+        withCredentials: true,
+      }
+    );
+    return await firstValueFrom(request);
   }
 }
